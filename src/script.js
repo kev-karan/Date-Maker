@@ -130,12 +130,12 @@ botoesOpcao.forEach(botao => {
 btnOutraIdeia.addEventListener('click', () => {
     gridOpcoes.classList.add('escondido');
     caixaOutraIdeia.classList.remove('escondido');
-    tituloTela3.innerText = "Qual é o date dos teus sonhos? 😍";
+    tituloTela3.innerText = "Qual é o date dos seus sonhos? 😍";
 });
 
 btnConfirmarIdeia.addEventListener('click', () => {
     if(!inputOutraIdeia.value.trim()) {
-        alert("Escreve alguma coisinha para nós fazermos! 🥺");
+        alert("Escreve alguma coisinha pra gente fazer juntinhos! 🥺");
         return;
     }
     dateEscolhido = inputOutraIdeia.value;
