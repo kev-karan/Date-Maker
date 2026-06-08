@@ -166,7 +166,7 @@ btnAgenda.addEventListener('click', () => {
     const strFim = formataDataGCal(dataFim);
 
     const titulo = encodeURIComponent(`Date Especial: ${dateEscolhido} ❤️`);
-    const detalhes = encodeURIComponent(`Nosso date maravilhoso está agendado!\n\nEstilo: ${dateEscolhido}\n\nTe amo!`);
+    const detalhes = encodeURIComponent(`Nosso date maravilhoso está marcado!\n\nEstilo: ${dateEscolhido}\n\nTe amo!`);
     
     const meuEmail = "kelwinkaran@gmail.com"; 
 
