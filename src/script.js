@@ -7,7 +7,14 @@ const btnSim2 = document.getElementById('btn-sim-2');
 const btnNao2 = document.getElementById('btn-nao-2');
 
 const tela3 = document.getElementById('tela-3');
-const botoesOpcao = document.querySelectorAll('.btn-opcao');
+const tituloTela3 = document.getElementById('titulo-tela-3');
+const gridOpcoes = document.getElementById('grid-opcoes');
+const botoesOpcao = document.querySelectorAll('.btn-opcao:not(#btn-outra-ideia)'); 
+
+const btnOutraIdeia = document.getElementById('btn-outra-ideia');
+const caixaOutraIdeia = document.getElementById('caixa-outra-ideia');
+const btnConfirmarIdeia = document.getElementById('btn-confirmar-ideia');
+const inputOutraIdeia = document.getElementById('input-outra-ideia');
 
 const tela4 = document.getElementById('tela-4');
 const btnConfirmarData = document.getElementById('btn-confirmar-data');
@@ -105,20 +112,39 @@ btnSim2.addEventListener('click', () => {
     tela3.classList.remove('escondido');
 });
 
+function irParaTela4() {
+    tela3.classList.add('escondido');
+    tela4.classList.remove('escondido');
+    
+    const hoje = new Date().toISOString().split('T')[0];
+    inputData.setAttribute('min', hoje);
+}
+
 botoesOpcao.forEach(botao => {
     botao.addEventListener('click', () => {
         dateEscolhido = botao.getAttribute('data-opcao');
-        tela3.classList.add('escondido');
-        tela4.classList.remove('escondido');
-        
-        const hoje = new Date().toISOString().split('T')[0];
-        inputData.setAttribute('min', hoje);
+        irParaTela4();
     });
+});
+
+btnOutraIdeia.addEventListener('click', () => {
+    gridOpcoes.classList.add('escondido');
+    caixaOutraIdeia.classList.remove('escondido');
+    tituloTela3.innerText = "Qual é o date dos teus sonhos? 😍";
+});
+
+btnConfirmarIdeia.addEventListener('click', () => {
+    if(!inputOutraIdeia.value.trim()) {
+        alert("Escreve alguma coisinha para nós fazermos! 🥺");
+        return;
+    }
+    dateEscolhido = inputOutraIdeia.value;
+    irParaTela4();
 });
 
 btnConfirmarData.addEventListener('click', () => {
     if(!inputData.value || !inputHora.value) {
-        alert("Por favor, preencha a data e a hora do nosso date! 🥺");
+        alert("Por favor, preenche a data e a hora do nosso date! 🥺");
         return;
     }
     tela4.classList.add('escondido');
