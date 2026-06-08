@@ -10,8 +10,10 @@
 </head>
 
 <body>
+
     <div id="tela-1" class="container">
-        <h1>Você aceita ser minha namorada? 🥺</h1>
+        <h1>Oi, amor. Tem uma coisa muito importante que eu preciso te perguntar...</h1>
+        <h2>Você aceita namorar comigo (de novo e para todo sempre)?</h2>
         <div class="botoes">
             <button id="btn-sim-1" class="btn sim">Sim!</button>
             <button id="btn-nao-1" class="btn nao">Não</button>
@@ -19,12 +21,42 @@
     </div>
 
     <div id="tela-2" class="container escondido">
-        <h1>Você aceitou mesmo! 😭</h1>
-        <h2>Você quer ir num date comigo?</h2>
+        <h1>Eu sabia que você ia dizer sim! 🥰</h1>
+        <h2>Já que estamos de acordo, que tal você sair comigo num date?</h2>
         <div class="botoes">
-            <button id="btn-sim-2" class="btn sim">Com certeza!</button>
+            <button id="btn-sim-2" class="btn sim">Claro que sim!</button>
             <button id="btn-nao-2" class="btn nao">Não</button>
         </div>
+    </div>
+
+    <div id="tela-3" class="container escondido">
+        <h1>Sua vontade é uma ordem!</h1>
+        <h2>Qual vai ser o estilo do nosso date?</h2>
+        <div class="grid-opcoes">
+            <button class="btn-opcao" data-opcao="Cinema e Pipoca">🍿 Cinema e Pipoca</button>
+            <button class="btn-opcao" data-opcao="Jantar Romântico">🍝 Jantar Romântico</button>
+            <button class="btn-opcao" data-opcao="Piquenique ao ar livre">🧺 Piquenique ao ar livre</button>
+            <button class="btn-opcao" data-opcao="Tomar Sorvete">🍦 Passeio para tomar Sorvete</button>
+            <button class="btn-opcao" data-opcao="Ficar em casa (Filme e Delivery)">🛋️ Ficar em casa (Filme e
+                Delivery)</button>
+            <button class="btn-opcao" data-opcao="Surpresa (Eu escolho!)">🎁 Surpresa (Deixa que eu escolho!)</button>
+        </div>
+    </div>
+
+    <div id="tela-4" class="container escondido">
+        <h1>Excelente escolha! Mal posso esperar. 😍</h1>
+        <h2>Quando vamos fazer isso acontecer?</h2>
+        <div class="inputs-data">
+            <input type="date" id="data-date" required>
+            <input type="time" id="hora-date" required>
+        </div>
+        <button id="btn-confirmar-data" class="btn sim">Confirmar Date</button>
+    </div>
+
+    <div id="tela-5" class="container escondido">
+        <h1>Tudo certo! Date confirmado com sucesso. ❤️</h1>
+        <h2>Para você não esquecer (como se fosse possível), clica no botão abaixo:</h2>
+        <button id="btn-agenda" class="btn agenda">📅 Adicionar ao calendario</button>
     </div>
 
     <script src="script.js"></script>

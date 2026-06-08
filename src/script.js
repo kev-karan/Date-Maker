@@ -6,6 +6,19 @@ const tela2 = document.getElementById('tela-2');
 const btnSim2 = document.getElementById('btn-sim-2');
 const btnNao2 = document.getElementById('btn-nao-2');
 
+const tela3 = document.getElementById('tela-3');
+const botoesOpcao = document.querySelectorAll('.btn-opcao');
+
+const tela4 = document.getElementById('tela-4');
+const btnConfirmarData = document.getElementById('btn-confirmar-data');
+const inputData = document.getElementById('data-date');
+const inputHora = document.getElementById('hora-date');
+
+const tela5 = document.getElementById('tela-5');
+const btnAgenda = document.getElementById('btn-agenda');
+
+let dateEscolhido = '';
+
 function repelirBotao(e, botao) {
     const rect = botao.getBoundingClientRect();
     
@@ -62,8 +75,6 @@ document.addEventListener('mousemove', (e) => {
     if (!tela2.classList.contains('escondido')) repelirBotao(e, btnNao2);
 });
 
-// --- LÓGICA DO CELULAR ---
-
 function puloMobile(botao) {
     if (botao.style.position !== 'fixed') {
         const rect = botao.getBoundingClientRect();
@@ -90,5 +101,50 @@ btnSim1.addEventListener('click', () => {
 });
 
 btnSim2.addEventListener('click', () => {
-    alert("Perfeito! Agora vamos programar a data e hora.");
+    tela2.classList.add('escondido');
+    tela3.classList.remove('escondido');
+});
+
+botoesOpcao.forEach(botao => {
+    botao.addEventListener('click', () => {
+        dateEscolhido = botao.getAttribute('data-opcao');
+        tela3.classList.add('escondido');
+        tela4.classList.remove('escondido');
+        
+        const hoje = new Date().toISOString().split('T')[0];
+        inputData.setAttribute('min', hoje);
+    });
+});
+
+btnConfirmarData.addEventListener('click', () => {
+    if(!inputData.value || !inputHora.value) {
+        alert("Por favor, preencha a data e a hora do nosso date! 🥺");
+        return;
+    }
+    tela4.classList.add('escondido');
+    tela5.classList.remove('escondido');
+});
+
+btnAgenda.addEventListener('click', () => {
+    const dataVal = inputData.value;
+    const horaVal = inputHora.value;
+    
+    const dataInicio = new Date(`${dataVal}T${horaVal}`);
+    const dataFim = new Date(dataInicio.getTime() + (2 * 60 * 60 * 1000));
+    
+    const formataDataGCal = (data) => {
+        return data.toISOString().replace(/-|:|\.\d\d\d/g, "");
+    };
+
+    const strInicio = formataDataGCal(dataInicio);
+    const strFim = formataDataGCal(dataFim);
+
+    const titulo = encodeURIComponent(`Date Especial: ${dateEscolhido} ❤️`);
+    const detalhes = encodeURIComponent(`Nosso date maravilhoso está agendado!\n\nEstilo: ${dateEscolhido}\n\nTe amo!`);
+    
+    const meuEmail = "kelwinkaran@gmail.com"; 
+
+    const urlGCal = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${titulo}&dates=${strInicio}/${strFim}&details=${detalhes}&add=${meuEmail}`;
+    
+    window.open(urlGCal, '_blank');
 });
