@@ -31,15 +31,23 @@
 
     <div id="tela-3" class="container escondido">
         <h1>Sua vontade é uma ordem!</h1>
-        <h2>Qual vai ser o estilo do nosso date?</h2>
-        <div class="grid-opcoes">
+        <h2 id="titulo-tela-3">Qual vai ser o estilo do nosso date?</h2>
+
+        <div class="grid-opcoes" id="grid-opcoes">
             <button class="btn-opcao" data-opcao="Cinema e Pipoca">🍿 Cinema e Pipoca</button>
             <button class="btn-opcao" data-opcao="Jantar Romântico">🍝 Jantar Romântico</button>
-            <button class="btn-opcao" data-opcao="Piquenique ao ar livre">🧺 Piquenique ao ar livre</button>
-            <button class="btn-opcao" data-opcao="Tomar Sorvete">🍦 Passeio para tomar Sorvete</button>
-            <button class="btn-opcao" data-opcao="Ficar em casa (Filme e Delivery)">🛋️ Ficar em casa (Filme e
-                Delivery)</button>
-            <button class="btn-opcao" data-opcao="Surpresa (Eu escolho!)">🎁 Surpresa (Deixa que eu escolho!)</button>
+            <button class="btn-opcao" data-opcao="Piquenique ao ar livre">🧺 Piquenique</button>
+            <button class="btn-opcao" data-opcao="Tomar Sorvete">🍦 Tomar Sorvete</button>
+            <button class="btn-opcao" data-opcao="Ficar em casa">🛋️ Ficar em casa</button>
+            <button class="btn-opcao" data-opcao="Date na Praia">🏖️ Date na Praia</button>
+            <button class="btn-opcao" data-opcao="Ir a uma Cafeteria">☕ Cafeteria fofa</button>
+            <button class="btn-opcao" data-opcao="Cozinhar algo juntos">🧑‍🍳 Cozinhar juntos</button>
+            <button id="btn-outra-ideia" class="btn-opcao">✍️ Eu escolho!</button>
+        </div>
+
+        <div id="caixa-outra-ideia" class="escondido inputs-data" style="margin-top: 20px;">
+            <input type="text" id="input-outra-ideia" placeholder="Qual é o teu date dos sonhos?">
+            <button id="btn-confirmar-ideia" class="btn sim">É este!</button>
         </div>
     </div>
 
@@ -56,7 +64,7 @@
     <div id="tela-5" class="container escondido">
         <h1>Tudo certo! Date confirmado com sucesso. ❤️</h1>
         <h2>Para você não esquecer (como se fosse possível), clica no botão abaixo:</h2>
-        <button id="btn-agenda" class="btn agenda">📅 Adicionar ao calendario</button>
+        <button id="btn-agenda" class="btn agenda">📅 Adicionar ao calendário</button>
     </div>
 
     <script src="script.js"></script>
